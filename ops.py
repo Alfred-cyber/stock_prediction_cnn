@@ -16,6 +16,16 @@ except:
   merge_summary = tf.summary.merge
   SummaryWriter = tf.summary.FileWriter
 
+'''
+The function starts by creating a variable scope named name.
+Inside this scope, it defines the convolutional filter weights (w) using tf.get_variable. The shape of the filter weights is determined by the input shape and the specified output dimension.
+It performs the convolution operation (c) using tf.nn.conv1d.
+If the bias parameter is set to True, it creates bias variable b using tf.get_variable and adds it to the convolution result (c). Otherwise, it returns the convolution result directly.
+The function finally returns the result of the convolution operation, optionally with the bias added.
+This function is useful for creating a 1D convolutional layer in a neural network, allowing the network to learn features from the input data in a one-dimensional sequence.
+
+'''
+
 def conv1d(input, output_dim,
            conv_w=9, conv_s=2,
            padding="SAME", name="conv1d",
